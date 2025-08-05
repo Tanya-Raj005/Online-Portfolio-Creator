@@ -6,7 +6,7 @@ An interactive portfolio builder with a full-screen design, dark/light mode, cus
 
 ##  Features
 
-- Full-screen modern layout (no sidebar)
+- Full-screen modern layout (with sidebar)
 - Dark / Light theme toggle
 - Customizable About, Skills, Projects, Contact sections
 - Download your portfolio as a standalone HTML file
