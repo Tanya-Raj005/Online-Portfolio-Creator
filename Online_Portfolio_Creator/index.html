@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio Creator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="toggle-theme" />
+      <span class="slider"></span>
+    </label>
+    <span id="theme-label">Light</span>
+  </div>
+
+  <div class="wrapper">
+    <aside class="form-panel">
+      <h2>Portfolio Builder</h2>
+      <div class="section">
+        <h3>Profile</h3>
+        <div class="photo-upload">
+          <div id="photo-preview" class="photo-placeholder">Upload Photo</div>
+          <input type="file" id="input-photo" accept="image/*" />
+        </div>
+        <label>
+          Full Name
+          <input type="text" id="input-name" placeholder="Daniel Dass" />
+        </label>
+        <label>
+          Title / Role
+          <input type="text" id="input-role" placeholder="Computer Science Student" />
+        </label>
+        <label>
+          Bio
+          <textarea id="input-bio" rows="4" placeholder="Motivated undergraduate at XYZ College..."></textarea>
+        </label>
+      </div>
+
+      <div class="section">
+        <h3>Skills</h3>
+        <div id="skills-container">
+          <!-- skill entries -->
+        </div>
+        <button type="button" id="add-skill-btn">+ Add Skill</button>
+      </div>
+
+      <div class="section">
+        <h3>Projects</h3>
+        <div id="projects-container">
+          <!-- project entries -->
+        </div>
+        <button type="button" id="add-project-btn">+ Add Project</button>
+        <small class="hint">Drag project cards to reorder.</small>
+      </div>
+
+      <div class="section">
+        <h3>Contact</h3>
+        <label>
+          Email
+          <input type="email" id="input-email" placeholder="Daniel@example.com" />
+        </label>
+        <label>
+          Links (GitHub / LinkedIn / Website)
+          <input type="text" id="input-links" placeholder="github.com/daniel" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="generate-btn">Update Preview</button>
+        <button id="download-html-btn">Download HTML</button>
+      </div>
+    </aside>
+
+    <main class="preview-panel">
+      <div id="portfolio-preview">
+        <div class="portfolio-header">
+          <div class="profile-row">
+            <div class="photo-wrapper">
+              <img id="preview-photo" src="" alt="Profile Photo" />
+            </div>
+            <div class="text-head">
+              <h1 id="preview-name">Your Name</h1>
+              <p id="preview-role">Your Role</p>
+              <p class="bio" id="preview-bio">Short bio about yourself goes here. Show your passion, skills, and what you’re building.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-section">
+          <h2>Skills</h2>
+          <div id="preview-skills" class="skills-list"></div>
+        </div>
+
+        <div class="portfolio-section">
+          <h2>Projects</h2>
+          <div id="preview-projects" class="projects-grid"></div>
+        </div>
+
+        <div class="portfolio-section">
+          <h2>Contact</h2>
+          <p id="preview-contact"></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Templates -->
+  <template id="skill-template">
+    <div class="skill-entry">
+      <div class="fields">
+        <input type="text" class="skill-name" placeholder="Skill name (e.g., Python)" />
+        <div class="proficiency-wrapper">
+          <label>Level:</label>
+          <input type="range" class="skill-level" min="1" max="10" value="7" />
+          <span class="level-display">7</span>
+        </div>
+      </div>
+      <button type="button" class="remove-skill">✕</button>
+    </div>
+  </template>
+
+  <template id="project-template">
+    <div class="project-entry draggable" draggable="true">
+      <div class="proj-top">
+        <div class="proj-title-group">
+          <input type="text" class="proj-title" placeholder="Project Title" />
+          <input type="text" class="proj-tags" placeholder="Tags (comma separated)" />
+        </div>
+        <button type="button" class="remove-project">Remove</button>
+      </div>
+      <label>Description</label>
+      <textarea class="proj-desc" rows="2" placeholder="Short description"></textarea>
+      <label>Link (optional)</label>
+      <input type="text" class="proj-link" placeholder="https://github.com/..." />
+      <hr />
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
